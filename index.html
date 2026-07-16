@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lewis Racing Works | Rolla, MO</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #ff4500; /* Racing Orange */
+            --card-bg: #1e1e1e;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        h1 { margin: 0; color: #fff; font-size: 2.5rem; letter-spacing: 1px; }
+        h2 { color: #fff; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; padding: 40px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); border-radius: 8px; margin-bottom: 30px; }
+        .hero h2 { border: none; font-size: 1.8rem; color: var(--accent-color); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .card { background-color: var(--card-bg); padding: 20px; border-radius: 6px; border-left: 4px solid var(--accent-color); }
+        .card h3 { margin-top: 0; color: #fff; }
+        form { background-color: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid #333; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #fff; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #444; background-color: #2b2b2b; color: #fff; border-radius: 4px; box-sizing: border-box; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent-color); outline: none; }
+        button { background-color: var(--accent-color); color: #fff; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #e03d00; }
+        footer { background-color: #000; text-align: center; padding: 30px; margin-top: 40px; border-top: 1px solid #333; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LEWIS RACING WORKS</h1>
+        <p style="color: #aaa; margin: 5px 0 0 0;">High-Performance Motorcycle Engineering & Suspension | Rolla, MO</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="hero">
+            <h2>Track-Proven Precision</h2>
+            <p>From precision maintenance to complete custom suspension revalving and engine blueprinting. We build setups tailored mathematically to your exact riding weight, chassis geometry, and application.</p>
+        </section>
+
+        <section>
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Suspension Tuning</h3>
+                    <p>Custom rear shock builds, stock shock/fork revalving, and custom shim stacks calculated for your exact weight and racing class.</p>
+                </div>
+                <div class="card">
+                    <h3>Engine & Machining</h3>
+                    <p>Complete top and bottom-end engine rebuilds, performance blueprinting, and precision small parts machining.</p>
+                </div>
+                <div class="card">
+                    <h3>Track Day Prep</h3>
+                    <p>Full technical inspection prep, chassis setup, track geometry optimization, and tire changes to keep you fast and safe.</p>
+                </div>
+                <div class="card">
+                    <h3>Bikes & Parts</h3>
+                    <p>We source and sell specialized performance components, racing gear, and select track/street motorcycles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionnaire">
+            <h2>Custom Suspension Questionnaire</h2>
+            <p style="margin-bottom: 20px; color: #aaa;">Fill out your setup details below. We will review your data and email you a custom build blueprint, price quote, and shipping/drop-off instructions.</p>
+            
+            <!-- Linked to your unique Formspree Endpoint -->
+            <form action="https://formspree.io/f/mnjepnry" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="racer@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="(573) 555-0123">
+                </div>
+
+                <div class="form-group">
+                    <label for="bike">Bike Year, Make, & Model</label>
+                    <input type="text" id="bike" name="bike_model" required placeholder="e.g., 2024 Suzuki GSX-R1000">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Rider Weight (With Full Gear in lbs)</label>
+                    <input type="number" id="weight" name="rider_weight" required placeholder="e.g., 195">
+                </div>
+
+                <div class="form-group">
+                    <label for="application">Primary Application</label>
+                    <select id="application" name="application" required>
+                        <option value="" disabled selected>Select your riding style</option>
+                        <option value="Drag Racing">Drag Racing (Grudge / Bracket)</option>
+                        <option value="Track Day / Road Racing">Track Day / Road Racing</option>
+                        <option value="Aggressive Street">Aggressive Street Performance</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="wheelbase">Current Wheelbase (Inches)</label>
+                    <input type="text" id="wheelbase" name="wheelbase" placeholder="e.g., Stock or 64 inches">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkage">Linkage Setup</label>
+                    <select id="linkage" name="linkage">
+                        <option value="Stock Linkage">Stock Factory Linkage</option>
+                        <option value="Aftermarket Straight Link">Aftermarket Straight Link</option>
+                        <option value="Other Custom Geometry">Other Custom Geometry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="power">Estimated Engine Horsepower / Power Adders</label>
+                    <input type="text" id="power" name="engine_specs" placeholder="e.g., 180hp, All-Motor / 40hp Nitrous shot">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Requested Service</label>
+                    <select id="service" name="requested_service" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="Full Custom Shock Build">Full Custom Shock Build</option>
+                        <option value="Stock Shock Revalve">Stock Shock Revalve</option>
+                        <option value="Fork Revalve & Springs">Fork Revalve & Springs</option>
+                        <option value="General Engine/Chassis Service">General Engine / Chassis Service</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Setup Notes / Issues You Want to Fix</label>
+                    <textarea id="notes" name="rider_notes" rows="4" placeholder="Describe how the bike handles now, or what you need the chassis to do..."></textarea>
+                </div>
+
+                <button type="submit">Submit Setup to Lewis Racing Works</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>Lewis Racing Works</strong></p>
+        <p>Rolla, Missouri | Local Drop-offs & Nationwide Mail-In Service</p>
+        <p>Shop Hours: By Appointment Only</p>
+        <p style="color: #666; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Lewis Racing Works. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
