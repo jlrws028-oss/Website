@@ -62,7 +62,7 @@
             margin-top: 15px;
         }
 
-        /* Responsive Photo Gallery Grids */
+        /* Photo Gallery Grids */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -83,7 +83,36 @@
         label { display: block; margin-bottom: 8px; font-weight: bold; color: #fff; }
         input, select, textarea { width: 100%; padding: 10px; border: 1px solid #444; background-color: #2b2b2b; color: #fff; border-radius: 4px; box-sizing: border-box; }
         input:focus, select:focus, textarea:focus { border-color: var(--accent-color); outline: none; }
-        button { background-color: var(--accent-color); color: #fff; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; }
+        
+        /* Checkbox list layout */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            background-color: #151515;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #2a2a2a;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkbox-item input {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        .checkbox-item label {
+            display: inline;
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        button { background-color: var(--accent-color); color: #fff; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 10px; }
         button:hover { background-color: #e03d00; }
         footer { background-color: #000; text-align: center; padding: 30px; margin-top: 40px; border-top: 1px solid #333; font-size: 0.9rem; }
     </style>
@@ -141,7 +170,7 @@
         </div>
 
         <section id="questionnaire">
-            <h2>Service Request & Setup Questionnaire</h2>
+            <h2>All-In-One Service Request Form</h2>
             <p style="margin-bottom: 20px; color: #aaa;">Fill out your setup details below. We will review your data and email you a custom build blueprint, price quote, and shipping/drop-off instructions.</p>
             
             <form action="https://formspree.io" method="POST">
@@ -196,14 +225,3 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="power">Estimated Engine Horsepower / Power Adders</label>
-                    <input type="text" id="power" name="engine_specs" placeholder="e.g., 180hp, All-Motor / 40hp Nitrous shot">
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Requested Service</label>
-                    <select id="service" name="requested_service" required>
-                        <option value="" disabled selected>Select a service</option>
-                        <option value="Full Custom Shock Build">Full Custom Shock Build</option>
-                        <option value="Stock Shock Revalve">Stock Shock Revalve</option>
-                        <option value="Fork Revalve & Springs">Fork Revalve & Springs</option>
