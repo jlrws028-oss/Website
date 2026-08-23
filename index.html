@@ -61,8 +61,6 @@
             border: 1px dashed #444;
             margin-top: 15px;
         }
-
-        /* Responsive Photo Gallery Grids */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -77,7 +75,6 @@
             border: 1px solid #333;
             background-color: #2b2b2b;
         }
-
         form { background-color: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid #333; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: bold; color: #fff; }
@@ -91,7 +88,6 @@
 <body>
 
     <header>
-        <!-- Displays logo.jpg from your uploads. Uses backup text header if logo name is different -->
         <img src="logo.jpg" alt="Lewis Racing Works" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-title').style.display='block';">
         <h1 id="alt-title" style="display:none;">LEWIS RACING WORKS</h1>
         <p style="color: #aaa; margin: 5px 0 0 0;">High-Performance Motorcycle Engineering & Suspension | Rolla, MO</p>
@@ -106,20 +102,16 @@
 
         <h2>Our Specialties & Work Gallery</h2>
 
-        <!-- Suspension Section with Core Discount, Address, and 4 Shock Images -->
         <div class="service-section">
             <h3>Suspension Tuning & Custom Revalves</h3>
             <p>Custom rear shock builds, stock shock/fork revalving, and custom shim stacks calculated for your exact weight, linkage geometry, and racing application.</p>
-            
             <div class="badge">PROMO: Send in your stock core shock to knock $50 off your bill!</div>
-            
             <div class="address-box">
                 <strong style="color: #fff;">📦 Mail-In Shipping Address:</strong><br>
                 Lewis Racing Works<br>
                 18533 Hwy A<br>
                 Rolla, MO 65401
             </div>
-            
             <div class="gallery-grid">
                 <img src="shock1.jpg" alt="LRW Suspension Work 1">
                 <img src="shock2.jpg" alt="LRW Suspension Work 2">
@@ -128,11 +120,9 @@
             </div>
         </div>
 
-        <!-- Bike Repair / Machining Section with 6 Bike Images -->
         <div class="service-section">
             <h3>General Maintenance, Track Prep, & Machining</h3>
             <p>Fast tire changes, fluids, track day technical inspection prep, and specialized small parts machining engineered to high performance racing standards.</p>
-            
             <div class="gallery-grid">
                 <img src="bike1.jpg" alt="LRW Built Motorcycle 1">
                 <img src="bike2.jpg" alt="LRW Built Motorcycle 2">
@@ -144,11 +134,9 @@
         </div>
 
         <section id="questionnaire">
-            <h2>Custom Suspension Questionnaire</h2>
+            <h2>Service Request & Setup Questionnaire</h2>
             <p style="margin-bottom: 20px; color: #aaa;">Fill out your setup details below. We will review your data and email you a custom build blueprint, price quote, and shipping/drop-off instructions.</p>
-            
             <form action="https://formspree.io" method="POST">
-                
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -207,3 +195,32 @@
                     <label for="service">Requested Service</label>
                     <select id="service" name="requested_service" required>
                         <option value="" disabled selected>Select a service</option>
+                        <option value="Custom Shock Build">Custom Shock Build</option>
+                        <option value="Fork and Shock Revalve">Fork and Shock Revalve</option>
+                        <option value="General Maintenance">General Maintenance</option>
+                        <option value="Track Day Prep">Track Day Prep</option>
+                        <option value="Performance Engine Work">Performance Engine Work</option>
+                        <option value="Motorcycle Geometry Setup">Motorcycle Geometry Setup</option>
+                        <option value="Small Parts Machining">Small Parts Machining</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Setup Notes / Job Requirements</label>
+                    <textarea id="notes" name="rider_notes" rows="4" placeholder="Describe what you want done..."></textarea>
+                </div>
+
+                <button type="submit">Submit Setup to Lewis Racing Works</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Lewis Racing Works</strong></p>
+        <p>18533 Hwy A, Rolla, MO 65401 | Local Drop-offs & Nationwide Mail-In Service</p>
+        <p>Shop Hours: By Appointment Only</p>
+        <p style="color: #666; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Lewis Racing Works. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
