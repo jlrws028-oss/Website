@@ -91,7 +91,6 @@
 <body>
 
     <header>
-        <!-- Displays logo.jpg from your uploads. Uses backup text header if logo name is different -->
         <img src="logo.jpg" alt="Lewis Racing Works" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-title').style.display='block';">
         <h1 id="alt-title" style="display:none;">LEWIS RACING WORKS</h1>
         <p style="color: #aaa; margin: 5px 0 0 0;">High-Performance Motorcycle Engineering & Suspension | Rolla, MO</p>
@@ -106,7 +105,6 @@
 
         <h2>Our Specialties & Work Gallery</h2>
 
-        <!-- Suspension Section with Core Discount, Address, and 4 Shock Images -->
         <div class="service-section">
             <h3>Suspension Tuning & Custom Revalves</h3>
             <p>Custom rear shock builds, stock shock/fork revalving, and custom shim stacks calculated for your exact weight, linkage geometry, and racing application.</p>
@@ -128,7 +126,6 @@
             </div>
         </div>
 
-        <!-- Bike Repair / Machining Section with 6 Bike Images -->
         <div class="service-section">
             <h3>General Maintenance, Track Prep, & Machining</h3>
             <p>Fast tire changes, fluids, track day technical inspection prep, and specialized small parts machining engineered to high performance racing standards.</p>
@@ -206,4 +203,7 @@
                 <div class="form-group">
                     <label for="service">Requested Service</label>
                     <select id="service" name="requested_service" required>
-                        <option value="" 
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="Full Custom Shock Build">Full Custom Shock Build</option>
+                        <option value="Stock Shock Revalve">Stock Shock Revalve</option>
+                        <option value="Fork Revalve & Springs">Fork Revalve & Springs</option>
