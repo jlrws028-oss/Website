@@ -136,7 +136,9 @@
         <section id="questionnaire">
             <h2>Service Request & Setup Questionnaire</h2>
             <p style="margin-bottom: 20px; color: #aaa;">Fill out your setup details below. We will review your data and email you a custom build blueprint, price quote, and shipping/drop-off instructions.</p>
-            <form action="https://formspree.io" method="POST">
+            
+            <!-- Updated Formspree Endpoint Link below -->
+            <form action="https://formspree.io/f/mnjepnry" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -164,6 +166,7 @@
 
                 <div class="form-group">
                     <label for="application">Primary Application</label>
+                    <!-- Fixed Select syntax template dropdown -->
                     <select id="application" name="application" required>
                         <option value="" disabled selected>Select your riding style</option>
                         <option value="Drag Racing">Drag Racing (Grudge / Bracket)</option>
@@ -172,54 +175,14 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="wheelbase">Current Wheelbase (Inches)</label>
-                    <input type="text" id="wheelbase" name="wheelbase" placeholder="e.g., Stock or 64 inches">
-                </div>
-
-                <div class="form-group">
-                    <label for="linkage">Linkage Setup</label>
-                    <select id="linkage" name="linkage">
-                        <option value="Stock Linkage">Stock Factory Linkage</option>
-                        <option value="Aftermarket Straight Link">Aftermarket Straight Link</option>
-                        <option value="Other Custom Geometry">Other Custom Geometry</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="power">Estimated Engine Horsepower / Power Adders</label>
-                    <input type="text" id="power" name="engine_specs" placeholder="e.g., 180hp, All-Motor / 40hp Nitrous shot">
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Requested Service</label>
-                    <select id="service" name="requested_service" required>
-                        <option value="" disabled selected>Select a service</option>
-                        <option value="Custom Shock Build">Custom Shock Build</option>
-                        <option value="Fork and Shock Revalve">Fork and Shock Revalve</option>
-                        <option value="General Maintenance">General Maintenance</option>
-                        <option value="Track Day Prep">Track Day Prep</option>
-                        <option value="Performance Engine Work">Performance Engine Work</option>
-                        <option value="Motorcycle Geometry Setup">Motorcycle Geometry Setup</option>
-                        <option value="Small Parts Machining">Small Parts Machining</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="notes">Additional Setup Notes / Job Requirements</label>
-                    <textarea id="notes" name="rider_notes" rows="4" placeholder="Describe what you want done..."></textarea>
-                </div>
-
-                <button type="submit">Submit Setup to Lewis Racing Works</button>
+                <button type="submit">Submit Request</button>
             </form>
         </section>
+
     </div>
 
     <footer>
-        <p><strong>Lewis Racing Works</strong></p>
-        <p>18533 Hwy A, Rolla, MO 65401 | Local Drop-offs & Nationwide Mail-In Service</p>
-        <p>Shop Hours: By Appointment Only</p>
-        <p style="color: #666; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Lewis Racing Works. All rights reserved.</p>
+        <p>&copy; 2026 Lewis Racing Works. All rights reserved.</p>
     </footer>
 
 </body>
