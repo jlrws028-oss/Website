@@ -83,6 +83,27 @@
         button { background-color: var(--accent-color); color: #fff; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; }
         button:hover { background-color: #e03d00; }
         footer { background-color: #000; text-align: center; padding: 30px; margin-top: 40px; border-top: 1px solid #333; font-size: 0.9rem; }
+        
+        #form-status {
+            display: none;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #form-status.success {
+            display: block;
+            background-color: #1b4332;
+            color: #75e6da;
+            border: 1px solid #2d6a4f;
+        }
+        #form-status.error {
+            display: block;
+            background-color: #641e1e;
+            color: #ffb3b3;
+            border: 1px solid #a83232;
+        }
     </style>
 </head>
 <body>
@@ -137,8 +158,9 @@
             <h2>Service Request & Setup Questionnaire</h2>
             <p style="margin-bottom: 20px; color: #aaa;">Fill out your setup details below. We will review your data and email you a custom build blueprint, price quote, and shipping/drop-off instructions.</p>
             
-            <!-- Updated Formspree Endpoint Link below -->
-            <form action="https://formspree.io/f/mnjepnry" method="POST">
+            <div id="form-status"></div>
+
+            <form id="racing-form" action="https://formspree.io" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -166,7 +188,6 @@
 
                 <div class="form-group">
                     <label for="application">Primary Application</label>
-                    <!-- Fixed Select syntax template dropdown -->
                     <select id="application" name="application" required>
                         <option value="" disabled selected>Select your riding style</option>
                         <option value="Drag Racing">Drag Racing (Grudge / Bracket)</option>
@@ -175,15 +196,58 @@
                     </select>
                 </div>
 
-                <button type="submit">Submit Request</button>
+                <button type="submit" id="submit-btn">Submit Request</button>
             </form>
         </section>
 
     </div>
-
     <footer>
         <p>&copy; 2026 Lewis Racing Works. All rights reserved.</p>
     </footer>
+
+    <script>
+        const form = document.getElementById("racing-form");
+        const status = document.getElementById("form-status");
+        const button = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            button.disabled = true;
+            button.innerText = "Sending...";
+            status.className = "";
+            status.style.display = "none";
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    status.innerText = "Thanks! Your request has been sent successfully.";
+                    status.className = "success";
+                    form.reset();
+                } else {
+                    const dataJson = await response.json();
+                    if (dataJson.hasOwnProperty('errors')) {
+                        status.innerText = dataJson.errors.map(error => error.message).join(", ");
+                    } else {
+                        status.innerText = "Oops! There was a problem submitting your form.";
+                    }
+                    status.className = "error";
+                }
+            } catch (error) {
+                status.innerText = "Oops! Network error. Please check your internet connection.";
+                status.className = "error";
+            } finally {
+                button.disabled = false;
+                button.innerText = "Submit Request";
+            }
+        });
+    </script>
 
 </body>
 </html>
